@@ -1,0 +1,23 @@
+{
+  "name": "tech-blog",
+  "version": "1.0.0",
+  "description": "a CMS-style blog site about tech",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/PurplePeopleEated/tech-blog.git"
+  },
+  "author": "PurplePeopleEated",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PurplePeopleEated/tech-blog/issues"
+  },
+  "homepage": "https://github.com/PurplePeopleEated/tech-blog#readme",
+  "dependencies": {
+    "sequelize": "^6.36.0"
+  }
+}
