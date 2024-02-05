@@ -1,16 +1,16 @@
 [
   {
-    "comment_text": "This is a test comment for post 1.",
+    "content": "This is a test comment for post 1.",
     "user_id": 1,
     "post_id": 1
   },
   {
-    "comment_text": "Another insightful comment on post 2.",
+    "content": "Another insightful comment on post 2.",
     "user_id": 2,
     "post_id": 2
   },
   {
-    "comment_text": "Great post! Looking forward to more.",
+    "content": "Great post! Looking forward to more.",
     "user_id": 3,
     "post_id": 3
   }
