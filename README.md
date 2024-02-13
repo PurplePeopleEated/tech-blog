@@ -14,6 +14,8 @@ This site is for a techies to gather and give/recieve input from each other!
 
 Create an account and use each page to add new posts and comments.
 
+![screenshot of the website](scrnshot.png)
+
 ## License
 [MIT License](https://opensource.org/license/mit/)
 
