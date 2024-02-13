@@ -20,8 +20,86 @@ router.get('/', async (req, res) => {
     res.render('homepage', {
       posts: posts,
       logged_in: req.session.logged_in
-    })
+    });
+
 } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// * GET single post by id * //
+router.get('/post/:id', async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['username']
+        },
+        {
+          model: Comment,
+          include: [
+            {
+              model: User,
+              attributes: ['username']
+            }
+          ]
+        }
+      ]
+    });
+    console.log(postData);
+    const post = postData.get({ plain: true });
+
+    res.render('post', {
+      ...post,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// * GET comments for single post * //
+router.get('/post/:id', async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['username']
+        }
+      ]
+    });
+
+    const commentData = await Comment.findAll({
+      where: {
+        post_id: req.params.id
+      },
+      include: [
+        {
+          model: User,
+          attributes: ['username']
+        }
+      ]
+    });
+
+    const post = postData.get({ plain: true });
+    const comments = commentData.map((comment) => comment.get({ plain: true }));
+    const authorComments = comments.filter((comment) => {
+      return {
+        is_author: comment.user_id === req.session.user_id, 
+        ...comment
+      };
+    });
+
+    res.render('post', {
+      ...post,
+      comments: authorComments,
+      logged_in: req.session.logged_in,
+      is_author: post.user_id === req.session.user_id
+    });
+
+  } catch (err) {
     res.status(500).json(err);
   }
 });
