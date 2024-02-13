@@ -14,6 +14,8 @@ This site is for a techies to gather and give/recieve input from each other!
 
 Create an account and use each page to add new posts and comments.
 
+[Link to Website](https://boiling-mesa-75936-2db64dd6b5b0.herokuapp.com/)
+
 ![screenshot of the website](scrnshot.png)
 
 ## License
