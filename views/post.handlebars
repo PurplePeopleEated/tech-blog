@@ -1,0 +1,32 @@
+<div>
+  <h1>{{title}}</h1>
+  <p>Created by: {{user.username}}</p>
+  <p>{{content}}</p>
+</div>
+
+{{#if logged_in}}
+{{!-- comment form goes here --}}
+{{else}}
+  <p>Please login to leave a comment</p>
+{{/if}}
+
+{{#if comments.length}}
+<div class="comments">
+  {{!-- comment list goes here --}}
+  {{#each comments as |comment|}}
+  <div>
+    <p>{{comment.content}}</p>
+    <p>{{comment.user.username}}</p>
+    {{!-- TODO fix date format --}}
+    <p>Date: {{comment.created_at}}</p>
+  </div>
+
+<div>
+  {{#if comment.is_author}}
+  {{!-- delete comment button goes here --}}
+  {{/if}}
+</div>
+
+  {{/each}}
+</div>
+{{/if}}
